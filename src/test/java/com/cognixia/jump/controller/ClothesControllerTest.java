@@ -66,7 +66,7 @@ public class ClothesControllerTest {
 
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
-		Clothes clothes = new Clothes("1", "Blue Onesie", "Onesie", "Male", "m3", colors, 12.99);
+		Clothes clothes = new Clothes("1", "Blue Onesie", "Onesie", "Male", "m3", colors, 12.99, "url");
 
 		when(service.createClothes(Mockito.any(Clothes.class))).thenReturn(clothes);
 
@@ -90,7 +90,7 @@ public class ClothesControllerTest {
 		String id = "1";
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
-		Clothes clothes = new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99);
+		Clothes clothes = new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99, "url");
 
 		when(service.findClothesById(id)).thenReturn(clothes);
 
@@ -108,7 +108,7 @@ public class ClothesControllerTest {
 		String id = "1";
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
-		Clothes clothes = new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99);
+		Clothes clothes = new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99, "url");
 
 		when(service.findClothesById(id)).thenReturn(clothes);
 
