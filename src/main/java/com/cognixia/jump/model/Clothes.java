@@ -37,12 +37,16 @@ public class Clothes {
 	@Range(min = 1)
 	private double price;
 
+	@NotBlank
+	private String imageUrl;
+
 	public Clothes() {
 
 	}
 
 	public Clothes(String id, @NotBlank String name, @NotBlank String type, @NotBlank String gender,
-			@NotBlank String age, @NotBlank List<String> color, @NotBlank @Range(min = 1) double price) {
+			@NotBlank String age, @NotBlank List<String> color, @NotBlank @Range(min = 1) double price,
+			@NotBlank String imageUrl) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -51,6 +55,7 @@ public class Clothes {
 		this.age = age;
 		this.color = color;
 		this.price = price;
+		this.imageUrl = imageUrl;
 	}
 
 	public String getId() {
@@ -109,10 +114,18 @@ public class Clothes {
 		this.price = price;
 	}
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	@Override
 	public String toString() {
 		return "Clothes [id=" + id + ", name=" + name + ", type=" + type + ", gender=" + gender + ", age=" + age
-				+ ", color=" + color + ", price=" + price + "]";
+				+ ", color=" + color + ", price=" + price + ", imageUrl=" + imageUrl + "]";
 	}
 
 }
