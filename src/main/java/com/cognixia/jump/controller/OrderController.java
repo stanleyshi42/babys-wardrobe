@@ -18,8 +18,6 @@ import com.cognixia.jump.exception.ResourceNotFoundException;
 import com.cognixia.jump.model.Clothes;
 import com.cognixia.jump.model.Order;
 import com.cognixia.jump.model.Purchase;
-import com.cognixia.jump.repository.ClothesRepository;
-import com.cognixia.jump.repository.OrderRepository;
 import com.cognixia.jump.service.ClothesService;
 import com.cognixia.jump.service.OrderService;
 
