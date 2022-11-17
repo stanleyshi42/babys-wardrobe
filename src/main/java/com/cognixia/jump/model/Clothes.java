@@ -38,7 +38,7 @@ public class Clothes {
 	private double price;
 
 	@NotBlank
-	private String imageUrl;
+	private String imagePath;
 
 	public Clothes() {
 
@@ -46,7 +46,7 @@ public class Clothes {
 
 	public Clothes(String id, @NotBlank String name, @NotBlank String type, @NotBlank String gender,
 			@NotBlank String age, @NotBlank List<String> color, @NotBlank @Range(min = 1) double price,
-			@NotBlank String imageUrl) {
+			@NotBlank String imagePath) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -55,7 +55,7 @@ public class Clothes {
 		this.age = age;
 		this.color = color;
 		this.price = price;
-		this.imageUrl = imageUrl;
+		this.imagePath = imagePath;
 	}
 
 	public String getId() {
@@ -114,18 +114,18 @@ public class Clothes {
 		this.price = price;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	@Override
 	public String toString() {
 		return "Clothes [id=" + id + ", name=" + name + ", type=" + type + ", gender=" + gender + ", age=" + age
-				+ ", color=" + color + ", price=" + price + ", imageUrl=" + imageUrl + "]";
+				+ ", color=" + color + ", price=" + price + ", imagePath=" + imagePath + "]";
 	}
 
 }

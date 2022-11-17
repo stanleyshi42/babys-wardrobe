@@ -33,10 +33,10 @@ public class ClothesServiceTest {
 		List<Clothes> clothes = new ArrayList<Clothes>();
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
-		clothes.add(new Clothes("1", "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99));
+		clothes.add(new Clothes("1", "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99, "url"));
 		colors.remove(0);
 		colors.add("Yellow");
-		clothes.add(new Clothes("2", "Yellow Onsies", "Onsie", "Unisex", "m6", colors, 14.99));
+		clothes.add(new Clothes("2", "Yellow Onsies", "Onsie", "Unisex", "m6", colors, 14.99, "url"));
 
 		when(repo.findAll()).thenReturn(clothes);
 
@@ -61,7 +61,7 @@ public class ClothesServiceTest {
 		String id = "1";
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
-		Optional<Clothes> clothes = Optional.of(new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99));
+		Optional<Clothes> clothes = Optional.of(new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99, "url"));
 
 		when(repo.findById(id)).thenReturn(clothes);
 		Clothes result = service.findClothesById(id);
@@ -74,7 +74,7 @@ public class ClothesServiceTest {
 	void testCreateClothes() throws Exception {
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
-		Clothes clothes = new Clothes("1", "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99);
+		Clothes clothes = new Clothes("1", "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99, "url");
 
 		when(repo.insert(Mockito.any(Clothes.class))).thenReturn(clothes);
 
@@ -89,7 +89,7 @@ public class ClothesServiceTest {
 		String id = "1";
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
-		Clothes clothes = new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99);
+		Clothes clothes = new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99, "url");
 
 		when(repo.existsById(id)).thenReturn(true);
 		when(repo.save(clothes)).thenReturn(clothes);
@@ -106,7 +106,7 @@ public class ClothesServiceTest {
 		String id = "1";
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
-		Optional<Clothes> clothes = Optional.of(new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99));
+		Optional<Clothes> clothes = Optional.of(new Clothes(id, "Blue Onsies", "Onsie", "Male", "m3", colors, 12.99, "url"));
 
 		when(repo.findById(id)).thenReturn(clothes);
 		doNothing().when(repo).deleteById(id);
@@ -123,7 +123,7 @@ public class ClothesServiceTest {
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
 		List<Clothes> clothes = new ArrayList<Clothes>();
-		clothes.add(new Clothes("1", "Blue Onsies", "Onsie", "Male", age, colors, 12.99));
+		clothes.add(new Clothes("1", "Blue Onsies", "Onsie", "Male", age, colors, 12.99, "url"));
 
 		when(repo.findByAge(age)).thenReturn(clothes);
 
@@ -139,7 +139,7 @@ public class ClothesServiceTest {
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
 		List<Clothes> clothes = new ArrayList<Clothes>();
-		clothes.add(new Clothes("1", "Blue Onsies", "Onsie", gender, "3", colors, 12.99));
+		clothes.add(new Clothes("1", "Blue Onsies", "Onsie", gender, "3", colors, 12.99, "url"));
 
 		when(repo.findByGender(gender)).thenReturn(clothes);
 
@@ -155,7 +155,7 @@ public class ClothesServiceTest {
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
 		List<Clothes> clothes = new ArrayList<Clothes>();
-		clothes.add(new Clothes("1", "Blue Onsies", type, "Male", "3", colors, 12.99));
+		clothes.add(new Clothes("1", "Blue Onsies", type, "Male", "3", colors, 12.99, "url"));
 
 		when(repo.findByType(type)).thenReturn(clothes);
 
@@ -171,7 +171,7 @@ public class ClothesServiceTest {
 		List<String> colors = new ArrayList<String>();
 		colors.add("Blue");
 		List<Clothes> clothes = new ArrayList<Clothes>();
-		clothes.add(new Clothes("1", "Blue Onsies", "Onsie", "Male", "3", colors, 12.99));
+		clothes.add(new Clothes("1", "Blue Onsies", "Onsie", "Male", "3", colors, 12.99, "url"));
 
 		when(repo.findByColorContaining(color)).thenReturn(clothes);
 
