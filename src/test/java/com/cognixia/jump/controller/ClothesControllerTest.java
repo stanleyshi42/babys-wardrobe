@@ -22,7 +22,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -73,7 +72,7 @@ public class ClothesControllerTest {
 		mockMvc.perform(post(uri).content(asJsonString(clothes)).contentType(MediaType.APPLICATION_JSON_VALUE))
 				.andDo(print()).andExpect(status().isCreated());
 	}
-
+	
 	@Test
 	@WithMockUser(value = "spring")
 	public void testFindAllClothes() throws Exception {

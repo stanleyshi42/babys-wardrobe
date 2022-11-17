@@ -18,26 +18,20 @@ public class Order {
 	private String userId;
 
 	@NotBlank
-	private String clothesId;
+	private List<Purchase> purchases;
 
 	@NotBlank
-	private List<Purchase> purchaces;
-
-	@NotBlank
-	@Range(min = 1)
 	private double price;
 
 	public Order() {
 
 	}
 
-	public Order(String id, @NotBlank String userId, @NotBlank String clothesId, @NotBlank List<Purchase> purchaces,
-			@NotBlank double price) {
+	public Order(String id, @NotBlank String userId, @NotBlank List<Purchase> purchases, @NotBlank double price) {
 		super();
 		this.id = id;
 		this.userId = userId;
-		this.clothesId = clothesId;
-		this.purchaces = purchaces;
+		this.purchases = purchases;
 		this.price = price;
 	}
 
@@ -57,20 +51,12 @@ public class Order {
 		this.userId = userId;
 	}
 
-	public String getClothesId() {
-		return clothesId;
+	public List<Purchase> getPurchases() {
+		return purchases;
 	}
 
-	public void setClothesId(String clothesId) {
-		this.clothesId = clothesId;
-	}
-
-	public List<Purchase> getPurchaces() {
-		return purchaces;
-	}
-
-	public void setPurchaces(List<Purchase> purchaces) {
-		this.purchaces = purchaces;
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
 	}
 
 	public double getPrice() {
@@ -83,8 +69,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", userId=" + userId + ", clothesId=" + clothesId + ", purchaces=" + purchaces
-				+ ", price=" + price + "]";
+		return "Order [id=" + id + ", userId=" + userId + ", purchases=" + purchases + ", price=" + price + "]";
 	}
 
 }
