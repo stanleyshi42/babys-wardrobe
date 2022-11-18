@@ -55,6 +55,12 @@ public class ClothesController {
 		return ResponseEntity.status(200).body(deleted);
 	}
 
+	@GetMapping("/clothes/name/{name}")
+	public List<Clothes> findByName(@PathVariable String name) {
+		List<Clothes> found = service.findByName(name);
+		return found;
+	}
+	
 	@GetMapping("/clothes/age/{age}")
 	public List<Clothes> findByAge(@PathVariable String age) {
 		List<Clothes> found = service.findByAge(age);

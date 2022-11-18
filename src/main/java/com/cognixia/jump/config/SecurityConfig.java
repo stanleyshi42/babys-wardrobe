@@ -63,6 +63,7 @@ public class SecurityConfig {
 			.antMatchers(HttpMethod.GET, "/api/clothes").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/clothes/{id}").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/clothes/age/{age}").permitAll()
+			.antMatchers(HttpMethod.GET, "/api/clothes/name/{name}").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/clothes/gender/{gender}").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/clothes/type/{type}").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/clothes/color/{color}").permitAll()
