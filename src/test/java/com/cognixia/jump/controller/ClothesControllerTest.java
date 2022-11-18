@@ -57,6 +57,7 @@ public class ClothesControllerTest {
 	// TODO 403 error
 //	@Test
 //	@WithMockUser(username = "admin", roles = "ADMIN")
+
 //	public void testCreateClothes() throws Exception {
 //		String uri = "/api/clothes";
 //
@@ -96,8 +97,10 @@ public class ClothesControllerTest {
 		verifyNoMoreInteractions(service);
 	}
 
+
+	// TODO 403 error
 //	@Test
-//	@WithMockUser(username = "admin", roles = "ADMIN")
+//	@WithMockUser(username = "admin", password = "password", roles = { "ADMIN" })
 //	public void testUpdateClothes() throws Exception {
 //		String uri = "/api/clothes";
 //
