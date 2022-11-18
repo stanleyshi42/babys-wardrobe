@@ -9,12 +9,9 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -32,6 +29,7 @@ public class SecurityConfig {
 	@Autowired
 	JwtRequestFilter jwtRequestFilter;
 	
+	// Disables CORS
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurerAdapter() {
@@ -56,12 +54,15 @@ public class SecurityConfig {
 			.antMatchers(HttpMethod.POST, "/api/user").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/user").hasRole("ADMIN")
 			.antMatchers(HttpMethod.PUT, "/api/user").hasRole("ADMIN")
-			.antMatchers(HttpMethod.GET, "/api/order").hasRole("ADMIN")
-			.antMatchers(HttpMethod.PUT, "/api/order").hasRole("ADMIN")
-			.antMatchers(HttpMethod.POST, "/api/order").hasRole("ADMIN")
+			.antMatchers(HttpMethod.DELETE, "/api/user").hasRole("ADMIN")
+			.antMatchers(HttpMethod.GET, "/api/order").hasAnyRole("USER", "ADMIN")
+			.antMatchers(HttpMethod.PUT, "/api/order").hasAnyRole("USER", "ADMIN")
+			.antMatchers(HttpMethod.POST, "/api/order").hasAnyRole("USER", "ADMIN")
 			.antMatchers(HttpMethod.DELETE, "/api/order").hasRole("ADMIN")
+			.antMatchers(HttpMethod.GET, "/api/clothes").permitAll()
 			.antMatchers(HttpMethod.POST, "/api/clothes").hasRole("ADMIN")
 			.antMatchers(HttpMethod.PUT, "/api/clothes").hasRole("ADMIN")
+			.antMatchers(HttpMethod.DELETE, "/api/clothes").hasRole("ADMIN")
 //			.antMatchers(HttpMethod.GET, "/api/book/count").hasRole("ADMIN")
 //			.antMatchers(HttpMethod.GET, "/api/book").hasAnyRole("ADMIN","USER")
 //			.antMatchers(HttpMethod.GET, "/api/book/id").hasAnyRole("ADMIN","USER")
