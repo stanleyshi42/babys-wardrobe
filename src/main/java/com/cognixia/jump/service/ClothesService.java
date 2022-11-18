@@ -48,6 +48,10 @@ public class ClothesService {
 		return toDelete;
 	}
 
+	public List<Clothes> findByName(String name) {
+		return repo.findByName(name);
+	}
+	
 	public List<Clothes> findByAge(String age) {
 		return repo.findByAge(age);
 	}

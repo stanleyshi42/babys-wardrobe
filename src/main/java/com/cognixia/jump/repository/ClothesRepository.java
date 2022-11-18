@@ -13,10 +13,13 @@ public interface ClothesRepository extends MongoRepository<Clothes, String> {
 
 	List<Clothes> findByAge(String age);
 
+	@Query("{ 'name': { $regex: '^?0$', $options: 'i' } }")
+	List<Clothes> findByName(String name);
+	
 	@Query("{ 'gender': { $regex: '^?0$', $options: 'i' } }")
 	List<Clothes> findByGender(String gender);
 
-	@Query("{ 'typr': { $regex: '^?0$', $options: 'i' } }")
+	@Query("{ 'type': { $regex: '^?0$', $options: 'i' } }")
 	List<Clothes> findByType(String type);
 
 	@Query("{ 'color': { $regex: '^?0$', $options: 'i' } }")
