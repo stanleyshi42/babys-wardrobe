@@ -11,6 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,8 +65,8 @@ public class UserController {
 		return service.updateUser(user);
 	}
 
-	@DeleteMapping("/user")
-	public ResponseEntity<?> deleteUser(@RequestParam String id) throws ResourceNotFoundException {
+	@DeleteMapping("/user/{id}")
+	public ResponseEntity<?> deleteUser(@PathVariable String id) throws ResourceNotFoundException {
 
 		return service.deleteUser(id);
 	}

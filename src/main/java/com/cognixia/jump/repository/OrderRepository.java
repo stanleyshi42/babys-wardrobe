@@ -13,10 +13,6 @@ import com.cognixia.jump.model.Order;
 public interface OrderRepository extends MongoRepository<Order, String> {
 
 	public List<Order> findByUserId(String userId);
-	
-//	public Order findByUserIdAndClothesId(String userId, String ClothesId);
-	
+		
 	public Optional<Order> findClothesById(String prodId);
-
-	public Order findByUserIdAndClothesId(String id, String clothesId);
 }

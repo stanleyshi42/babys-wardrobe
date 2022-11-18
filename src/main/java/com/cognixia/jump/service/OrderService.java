@@ -64,7 +64,6 @@ public class OrderService {
 
 		entry.setId(null);
 		entry.setUserId(user.getId());
-		entry.setClothesId(clothesId);
 		entry.setPurchaces(purchases);
 		entry.setPrice(price);
 
