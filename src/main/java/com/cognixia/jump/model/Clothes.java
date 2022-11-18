@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Clothes {
 
 	public static enum Gender {
-		MALE, FEMALE, UNISEX
+		BOY, GIRL, UNISEX
 	}
 
 	@Id

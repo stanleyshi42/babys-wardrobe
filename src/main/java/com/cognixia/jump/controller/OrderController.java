@@ -38,15 +38,6 @@ public class OrderController {
 	@PostMapping("/order")
 	public ResponseEntity<?> createOrder(@RequestBody Order order)
 			throws MethodArgumentNotValidException, ResourceNotFoundException {
-		System.out.println(order);
-		order.setId(null);
-		// Calculate total price for this order
-		double price = 0;
-		for (Purchase p : order.getPurchases()) {
-			Clothes clothes = clothesService.findClothesById(p.getId());
-			price += clothes.getPrice() * p.getQty();
-		}
-		order.setPrice(price);
 
 		Order created = orderService.createOrder(order);
 		return ResponseEntity.status(201).body(created);

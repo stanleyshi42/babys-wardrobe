@@ -46,6 +46,14 @@ public class UserService {
 		return ResponseEntity.status(201).body(created);
 	}
 
+	public User findUserById(String id) throws ResourceNotFoundException {
+		Optional<User> found = repo.findById(id);
+		if (found.isPresent()) {
+			return found.get();
+		}
+		throw new ResourceNotFoundException("Clothes", id);
+	}
+	
 	public ResponseEntity<?> updateUser(@Valid User user)
 			throws DuplicateResourceException, MethodArgumentNotValidException {
 

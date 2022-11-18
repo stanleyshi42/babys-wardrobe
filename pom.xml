@@ -12,10 +12,12 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Baby_Wardrobe_API</name>
 	<description>Product project for Spring Boot</description>
+	<packaging>jar</packaging>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+		
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
