@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 public class Purchase {
 
 	@NotBlank
-	private String prodId;
+	private String id;
 
 	@NotBlank
 	private int qty;
@@ -14,18 +14,18 @@ public class Purchase {
 
 	}
 
-	public Purchase(@NotBlank String prodId, @NotBlank int qty) {
+	public Purchase(@NotBlank String id, @NotBlank int qty) {
 		super();
-		this.prodId = prodId;
+		this.id = id;
 		this.qty = qty;
 	}
 
-	public String getProdId() {
-		return prodId;
+	public String getId() {
+		return id;
 	}
 
-	public void setProdId(String prodId) {
-		this.prodId = prodId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public int getQty() {
@@ -38,7 +38,7 @@ public class Purchase {
 
 	@Override
 	public String toString() {
-		return "Purchase [prodId=" + prodId + ", qty=" + qty + "]";
+		return "Purchase [id=" + id + ", qty=" + qty + "]";
 	}
 
 }
